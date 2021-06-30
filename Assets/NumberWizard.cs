@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class NumberWizard : MonoBehaviour
 {
-    int max = 1000;
-    int min = 1;
-    int guess = 500;
-    int score = 0;
+    int max;
+    int min;
+    int guess;
+    int score;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,10 @@ public class NumberWizard : MonoBehaviour
 
     void StartGame()
     {
+        max = 1000;
+        min = 1;
+        guess = 500;
+        score = 0;
         Debug.Log("Welcome to NumberWizard, player.");
         Debug.Log("Choose a number, player. But keep it to yourself.");
         Debug.Log("The highest you can choose is: " + max + ".");
@@ -44,6 +48,8 @@ public class NumberWizard : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("It only took me " + score + " tries!");
+            StartGame();
+            
         }   
     }
 
@@ -52,6 +58,7 @@ public class NumberWizard : MonoBehaviour
         guess = (max + min) / 2;
         Debug.Log("Is your number higher or lower than " + guess + ".");
         score = score +1;
+        
     }
 
 }
